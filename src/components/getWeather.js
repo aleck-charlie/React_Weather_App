@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import CityCard from "./cityCard";
 
-export default function getWeather() {
-  // set up useState
+export default function GetWeather() {
+    // set up useState
+  // track query, dislay cities
+  const [city, setCity] = useState('');
+  const [forecast, setForecast] = useState([]);
+
+  const cityName = forecast.name;
+  const temp = forecast.main.temp;
+
   const getCity = async (e) => {
     e.preventDefault();
+
   //create API variables 
   const APIkey = `d845519e939fee1ca0d40e76611f9818`;
-  const city = "Seattle";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
   
   //build a fetch response in a try catch
   try {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data)
+  console.log(data);
+  setForecast(data);
   } catch (err) {
     console.error(err);
   }
@@ -36,6 +44,7 @@ export default function getWeather() {
         type="text" 
         name="query place"
         placeholder="i.e. Seattle"
+        value={city} onChange={(e) => setCity(e.target.value)}
         >
       </input>
       <button 
@@ -43,8 +52,15 @@ export default function getWeather() {
       type="submit"
       >Search</button>
       </form>
- 
+    <div className="card-name">
+        <div className="card">
+
+        <p>{cityName}</p>
+        <p>{temp}</p>
+
+          </div>
     <CityCard />
+    </div>
     </div>
   );
 }
