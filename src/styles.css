@@ -1,4 +1,49 @@
-.App {
-  font-family: sans-serif;
+html {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 10px;
+};
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(188, 248, 215, 0.747);
+  color: rgb(57, 25, 116);
+}
+
+.title {
+  font-size: 3rem;
   text-align: center;
+  padding: 2rem;
+}
+
+.form{
+  display: grid;
+  padding: 3rem;
+  justify-items: center;
+}
+
+.label {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.input {
+  font-size: 1.6rem;
+  max-width: 400px;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  border: 1px solid rgb(112, 218, 159);
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: rgb(112, 218, 159);
+  width: 200px;
+  padding: .5rem;
+  border-radius: 10px;
+  border: 1px
 }
