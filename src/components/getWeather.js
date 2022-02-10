@@ -8,9 +8,6 @@ export default function GetWeather() {
   const [city, setCity] = useState('');
   const [forecast, setForecast] = useState([]);
 
-  const cityName = forecast.name;
-  const temp = forecast.main.temp;
-
   const getCity = async (e) => {
     e.preventDefault();
 
@@ -22,7 +19,6 @@ export default function GetWeather() {
   try {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   setForecast(data);
   } catch (err) {
     console.error(err);
@@ -32,9 +28,9 @@ export default function GetWeather() {
 
   return (
     //basic input form to search by city
-    <div className="App">
+    <div>
       <h1 className="title">Weather App</h1>
-
+      <CityCard forecast={forecast} />
       <form className="form" onSubmit={getCity}>
       <label className="label" htmlFor="city">
       <p>Search by City</p>
@@ -52,15 +48,6 @@ export default function GetWeather() {
       type="submit"
       >Search</button>
       </form>
-    <div className="card-name">
-        <div className="card">
-
-        <p>{cityName}</p>
-        <p>{temp}</p>
-
-          </div>
-    <CityCard />
-    </div>
     </div>
   );
 }
