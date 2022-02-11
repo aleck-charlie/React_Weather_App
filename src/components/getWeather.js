@@ -5,13 +5,13 @@ import CityCard from "./cityCard";
 export default function GetWeather() {
 
   const [city, setCity] = useState('');
-  const [forecast, setForecast] = useState([]);
+  const [forecast, setForecast] = useState('');
 
   const getCity = async (e) => {
     e.preventDefault();
 
   //create API variables 
-  const APIkey = `d845519e939fee1ca0d40e76611f9818`;
+  const APIkey = process.env.API_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIkey}`;
   
   //build a fetch response in a try catch
@@ -19,6 +19,7 @@ export default function GetWeather() {
   const res = await fetch(url);
   const data = await res.json();
   setForecast(data);
+  console.log(data)
   } catch (err) {
     console.error(err);
   }
