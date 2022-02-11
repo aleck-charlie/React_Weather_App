@@ -5,7 +5,7 @@ import CityCard from "./cityCard";
 export default function GetWeather() {
 
   const [city, setCity] = useState('');
-  const [forecast, setForecast] = useState([]);
+  const [forecast, setForecast] = useState();
 
   const getCity = async (e) => {
     e.preventDefault();
