@@ -7,13 +7,13 @@ export default function CityCard(props) {
   //pass props to cards
   const cityName = forecast?.name;
   const temp = forecast?.main?.temp;
-  const desc = forecast?.weather?.description;
+  const desc = forecast?.weather[0]?.main;
 
   return (
     <>
       <div className="card-container">
         <p className="card-title">{cityName}</p>
-        <p>Temp: {temp} </p>
+        <p>{temp}</p>
         <p>{desc}</p>
       </div>
     </>
