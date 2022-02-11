@@ -3,8 +3,7 @@ import "../styles.css";
 import CityCard from "./cityCard";
 
 export default function GetWeather() {
-    // set up useState
-  // track query, dislay cities
+
   const [city, setCity] = useState('');
   const [forecast, setForecast] = useState([]);
 
